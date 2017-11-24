@@ -1,0 +1,66 @@
+
+<!DOCTYPE>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" ></script>
+        
+        <script type="text/javascript">
+            function increaseValue()
+            {
+                var arrayNumbers =[];
+                arrayNumbers.push ({
+                    box1: $('#box1').val(),
+                    box2: $('#box2').val(),
+                    box3: $('#box3').val(),  
+                }); 
+                
+                /*'$("#box1").val();','$("#box2").val();','$("#box3").val();'
+                /*arrayNumbers=document.getElementById('box1','box2','box3').value;*/
+                
+                var change= document.form.change.value;
+                var result = null;
+                var sentence = null;
+
+                if (change == 'sum')
+                {
+                  result = parseFloat(arrayNumbers[0] + arrayNumbers[1] + arrayNumbers[2] )
+                }
+                else if(change == 'difference')
+                {
+                  result = arrayNumbers[0] - arrayNumbers[1] - arrayNumbers[2]
+                }
+                else if(change == 'average')
+                {
+                    result = ((arrayNumbers[0] + arrayNumbers[1] + arrayNumbers[2]) / 3)
+                }
+                var sentence = 'The '+ change +' of your numbers is '+ result +'.';
+                results.innerHTML=sentence;
+            }
+        </script>
+    </head>
+    
+    <body>
+        <div id="main_content">
+                <form name="form"><br>
+                    Enter 3 numbers:<br>
+
+                    1:
+                    <input type="text" name="txtNumber" id="box1"><br>
+                    2:
+                    <input type="text" name="txtNumber" id="box2"><br>
+                    3:
+                    <input type="text" name="txtNumber" id="box3"><br>
+
+                    <br>
+                    Add the numbers:<input type="radio" name="change" value="sum" ><br>
+                    Subtract the numbers:<input type="radio" name="change" value="difference" ><br>
+                    Average the numbers:<input type="radio" name="change" value="average" ><br><br>
+
+                    <input type="button" id="bid" value="Do Math!" onclick="increaseValue();">
+
+                </form>
+            <div id="results">                    
+        </div>  
+    </body>
+</html>
